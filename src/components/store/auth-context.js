@@ -26,7 +26,17 @@ export const AuthContextProvider = (props) => {
     localStorage.setItem("isLoggedIn", "1");
     setIsLoggedIn(true);
   };
-  return <AuthContext.Provider value={{isLoggedIn: isLoggedIn, onLogout: logoutHandler, onLogIn: loginHandler}}>{props.children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+        onLogout: logoutHandler,
+        onLogIn: loginHandler,
+      }}
+    >
+      {props.children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthContext;

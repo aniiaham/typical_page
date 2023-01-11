@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useReducer, useContext } from "react";
 
 import Card from "../UI/Card/Card";
-import classes from "./Login.module.css";
+
 import Button from "../UI/Button/Button";
 import AuthContext from "../store/auth-context";
 import Input from "../UI/Input/Input";
+
+import classes from "./Login.module.css";
 
 const emailReducer = (state, action) => {
   if (action.type === "USER_INPUT") {
@@ -89,7 +91,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    authCtx.onLogin(emailState.value, passwordState.value);
+    authCtx.onLogIn(emailState.value, passwordState.value);
   };
 
   return (
@@ -105,7 +107,7 @@ const Login = (props) => {
           onBlur={validateEmailHandler}
         />
         <Input
-          id="password"
+          id="password" 
           label="Password"
           type="password"
           isValid={passwordIsValid}
